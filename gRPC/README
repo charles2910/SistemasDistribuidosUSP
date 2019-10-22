@@ -1,0 +1,8 @@
+Atividade de Sistemas Distribuídos - Calculadora RPC
+Carlos H L Melara - 9805380
+
+A partir do código disponibilizado e da documentação em www.grpc.io/docs/
+foi implementada uma calculadora distribuída.
+A calculadora possui as funções de soma, multiplicação, divisão e
+subtração. Todas são requisitadas por uma aplicação cliente à uma
+aplicação servidor, este então retorna o valor da operação solicitada.
