@@ -19,6 +19,21 @@ class CalculatorStub(object):
         request_serializer=calculator__pb2.Numbers.SerializeToString,
         response_deserializer=calculator__pb2.RNumber.FromString,
         )
+    self.mult = channel.unary_unary(
+        '/Calculator/mult',
+        request_serializer=calculator__pb2.Numbers.SerializeToString,
+        response_deserializer=calculator__pb2.RNumber.FromString,
+        )
+    self.div = channel.unary_unary(
+        '/Calculator/div',
+        request_serializer=calculator__pb2.Numbers.SerializeToString,
+        response_deserializer=calculator__pb2.RNumber.FromString,
+        )
+    self.sub = channel.unary_unary(
+        '/Calculator/sub',
+        request_serializer=calculator__pb2.Numbers.SerializeToString,
+        response_deserializer=calculator__pb2.RNumber.FromString,
+        )
 
 
 class CalculatorServicer(object):
@@ -32,11 +47,47 @@ class CalculatorServicer(object):
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
+  def mult(self, request, context):
+    """método de multiplicação
+    """
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
+  def div(self, request, context):
+    """método de divisão
+    """
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
+  def sub(self, request, context):
+    """método de subtração
+    """
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
 
 def add_CalculatorServicer_to_server(servicer, server):
   rpc_method_handlers = {
       'sum': grpc.unary_unary_rpc_method_handler(
           servicer.sum,
+          request_deserializer=calculator__pb2.Numbers.FromString,
+          response_serializer=calculator__pb2.RNumber.SerializeToString,
+      ),
+      'mult': grpc.unary_unary_rpc_method_handler(
+          servicer.mult,
+          request_deserializer=calculator__pb2.Numbers.FromString,
+          response_serializer=calculator__pb2.RNumber.SerializeToString,
+      ),
+      'div': grpc.unary_unary_rpc_method_handler(
+          servicer.div,
+          request_deserializer=calculator__pb2.Numbers.FromString,
+          response_serializer=calculator__pb2.RNumber.SerializeToString,
+      ),
+      'sub': grpc.unary_unary_rpc_method_handler(
+          servicer.sub,
           request_deserializer=calculator__pb2.Numbers.FromString,
           response_serializer=calculator__pb2.RNumber.SerializeToString,
       ),

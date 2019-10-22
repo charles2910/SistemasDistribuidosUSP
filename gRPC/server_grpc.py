@@ -10,12 +10,27 @@ import calculator_pb2_grpc
 
 class Listener(calculator_pb2_grpc.CalculatorServicer):
 
-	def sum(self, request, context):
-		response = calculator_pb2.RNumber()
-		response.value = request.value + request.value2
-		return response
+        def sum(self, request, context):
+                response = calculator_pb2.RNumber()
+                response.value = request.value + request.value2
+                return response
+
+        def mult(self, request, context):
+                response = calculator_pb2.RNumber()
+                response.value = request.value * request.value2
+                return response
 
 
+        def div(self, request, context):
+                response = calculator_pb2.RNumber()
+                response.value = request.value / request.value2
+                return response
+
+
+        def sub(self, request, context):
+                response = calculator_pb2.RNumber()
+                response.value = request.value - request.value2
+                return response
 
 server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
 

@@ -1,4 +1,5 @@
-#python3 -m grpc_tools.protoc -I. --python_out=. --grpc_python_out=. calculator.proto
+// python3 -m grpc_tools.protoc -I. --python_out=. --grpc_python_out=. calculator.proto
+
 syntax = "proto3";
 
 
@@ -15,4 +16,12 @@ service Calculator {
   
   rpc sum(Numbers) returns (RNumber) {}
 
+  // método de multiplicação
+  rpc mult(Numbers) returns (RNumber) {}
+
+  // método de divisão
+  rpc div(Numbers) returns (RNumber) {}
+
+  // método de subtração
+  rpc sub(Numbers) returns (RNumber) {}
 }

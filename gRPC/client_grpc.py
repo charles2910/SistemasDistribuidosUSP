@@ -6,14 +6,29 @@ channel = grpc.insecure_channel('localhost:5001')
 
 stub = calculator_pb2_grpc.CalculatorStub(channel)
 
-print("Enter first number")
-x = input()
+while True:
 
-print("Enter second number")
-y = input()
+    print("Selecione a operação (ex: '+', '-', '*' ou '/'): ")
+    oper = input()
 
-number = calculator_pb2.Numbers(value=float(x),value2=float(y))
+    print("Enter first number")
+    x = input()
 
-response = stub.sum(number)
+    print("Enter second number")
+    y = input()
 
-print(response.value)
+    number = calculator_pb2.Numbers(value=float(x),value2=float(y))
+
+    if oper == "+":
+        response = stub.sum(number)
+    elif oper == "-":
+        response = stub.sub(number)
+    
+    elif oper == "*":
+        response = stub.mult(number)
+
+    elif oper == "/":
+        response = stub.div(number)
+
+    print("Resultado: ")
+    print(response.value)

@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\x10\x63\x61lculator.proto\"(\n\x07Numbers\x12\r\n\x05value\x18\x01 \x01(\x02\x12\x0e\n\x06value2\x18\x02 \x01(\x02\"\x18\n\x07RNumber\x12\r\n\x05value\x18\x01 \x01(\x02\x32)\n\nCalculator\x12\x1b\n\x03sum\x12\x08.Numbers\x1a\x08.RNumber\"\x00\x62\x06proto3')
+  serialized_pb=_b('\n\x10\x63\x61lculator.proto\"(\n\x07Numbers\x12\r\n\x05value\x18\x01 \x01(\x02\x12\x0e\n\x06value2\x18\x02 \x01(\x02\"\x18\n\x07RNumber\x12\r\n\x05value\x18\x01 \x01(\x02\x32\x81\x01\n\nCalculator\x12\x1b\n\x03sum\x12\x08.Numbers\x1a\x08.RNumber\"\x00\x12\x1c\n\x04mult\x12\x08.Numbers\x1a\x08.RNumber\"\x00\x12\x1b\n\x03\x64iv\x12\x08.Numbers\x1a\x08.RNumber\"\x00\x12\x1b\n\x03sub\x12\x08.Numbers\x1a\x08.RNumber\"\x00\x62\x06proto3')
 )
 
 
@@ -120,13 +120,40 @@ _CALCULATOR = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
-  serialized_start=88,
-  serialized_end=129,
+  serialized_start=89,
+  serialized_end=218,
   methods=[
   _descriptor.MethodDescriptor(
     name='sum',
     full_name='Calculator.sum',
     index=0,
+    containing_service=None,
+    input_type=_NUMBERS,
+    output_type=_RNUMBER,
+    serialized_options=None,
+  ),
+  _descriptor.MethodDescriptor(
+    name='mult',
+    full_name='Calculator.mult',
+    index=1,
+    containing_service=None,
+    input_type=_NUMBERS,
+    output_type=_RNUMBER,
+    serialized_options=None,
+  ),
+  _descriptor.MethodDescriptor(
+    name='div',
+    full_name='Calculator.div',
+    index=2,
+    containing_service=None,
+    input_type=_NUMBERS,
+    output_type=_RNUMBER,
+    serialized_options=None,
+  ),
+  _descriptor.MethodDescriptor(
+    name='sub',
+    full_name='Calculator.sub',
+    index=3,
     containing_service=None,
     input_type=_NUMBERS,
     output_type=_RNUMBER,
